@@ -2,13 +2,14 @@ package br.edu.ifg.luziania;
 
 public class RetornoAutenticacao {
 
-    private String menssagem;
+    private String mensagem;
 
-    public String getMessagem(){
-        return menssagem;
+
+    public String getMensagem(){
+        return mensagem;
     }
 
-    public void setMenssagem(String mensagem){
-        this.menssagem = mensagem;
+    public void setMensagem(String mensagem){
+        this.mensagem = mensagem;
     }
 }
