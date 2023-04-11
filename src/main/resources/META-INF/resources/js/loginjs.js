@@ -4,7 +4,7 @@ function validar_formulario(){
 
 function autenticar(){
     if(validar_formulario()){
-        var requisicao = criarRequisicao(document.getElementById("email").value,document.getElementById("senha".value))
+        var requisicao = criarRequisicao(document.getElementById("email").value,document.getElementById("senha").value)
         fetch(requisicao)
             .then((response) => {
                 if(response.status === 200) {
@@ -20,15 +20,15 @@ function autenticar(){
 }
 
 function criarRequisicao(email,senha){
-    return new Request("https://localhost:8080/autenticar", {
+    return new Request("http://localhost:8080/autenticar", {
         method: "POST",
         headers:{
             "Accept": "application/json",
-            "Content-Type": "aplication/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
             "email": email,
             "senha": senha
-        })
+        }),
     });
 }
