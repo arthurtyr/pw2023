@@ -1,5 +1,7 @@
-package br.edu.ifg.luziania;
+package br.edu.ifg.luziania.controller;
 
+import br.edu.ifg.luziania.model.dto.AutenticacaoDTO;
+import br.edu.ifg.luziania.model.dto.RetornoAutenticacaoDTO;
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 
@@ -13,11 +15,11 @@ import javax.ws.rs.core.Response;
 
 @Path("") //@Path -> Avisar o servidor de aplicações que essa classe java pode receber requisicções
 //e define o caminho base para essa class.
-public class Login {
+public class LoginController {
 
     private final Template login;
 
-    public Login(Template login){
+    public LoginController(Template login){
         this.login = login;
     }
 
@@ -32,8 +34,8 @@ public class Login {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/autenticar")
-    public Response autenticar(Autenticacao autenticacao){
-        RetornoAutenticacao retorno = new RetornoAutenticacao();
+    public Response autenticar(AutenticacaoDTO autenticacao){
+        RetornoAutenticacaoDTO retorno = new RetornoAutenticacaoDTO();
         if (autenticacao.getEmail().equals("aninha@gmail.com") && autenticacao.getSenha().equals("123")) {
             retorno.setMensagem("Usuário autenticado!");
             return Response.ok(retorno, MediaType.APPLICATION_JSON).build();

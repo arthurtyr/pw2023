@@ -1,6 +1,6 @@
-package br.edu.ifg.luziania;
+package br.edu.ifg.luziania.model.dto;
 
-public class Autenticacao {
+public class AutenticacaoDTO {
 
     private String email;
 
