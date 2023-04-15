@@ -18,7 +18,6 @@ import javax.ws.rs.core.Response;
 public class LoginController {
 
     private final Template login;
-    //teste
     public LoginController(Template login){
         this.login = login;
     }

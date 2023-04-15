@@ -1,0 +1,19 @@
+.sidebar{
+   padding: 0;
+    margin: 0;
+}
+
+.item{
+    text-decoration: none;
+    color: black;
+}
+body{
+    font-family: arial, serif;
+}
+ul{
+    list-style: none;
+}
+
+.icone{
+    width: 40px;
+}

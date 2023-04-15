@@ -1,0 +1,18 @@
+.bloco{
+    position: relative;
+    margin-top: 200px;
+    margin-left: 300px;
+    margin-right: 300px;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    border: solid red;
+    border-radius: 10px;
+    background: antiquewhite;
+    
+}
+.body {
+    background: #1D1B1A;
+}
+.invalid-feedback{
+    padding-bottom: -10px;
+}

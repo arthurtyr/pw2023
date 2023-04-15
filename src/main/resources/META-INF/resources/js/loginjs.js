@@ -29,7 +29,9 @@ function autenticar(){
             .then(json => {
                 console.log(JSON.stringify(json));
                 if(json.mensagem === "Usuário não autenticado!"){
-                    alert("Usuário não autenticado!!")
+                    document.getElementById("alerta-email").style.display = "block";
+                }else if (json.mensagem === "Usuário autenticado!"){
+                    window.location.href = window.location.origin+'/principal';
                 }
             });
     }else
