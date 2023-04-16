@@ -35,7 +35,7 @@ function autenticar(){
                 }
             });
     }else
-        alert('Os campos e-mail e senha são obrigatórios Verifique o formulário')
+        document.getElementById("vazio").style.display = "block";
 
 }
 // colocar uma mensagem de erro quando nao autenticar o usuario
