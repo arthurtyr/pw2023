@@ -36,6 +36,7 @@ function autenticar(){
             });
     }else
         document.getElementById("vazio").style.display = "block";
+        /*ALTERANDO O DISPLAY DO AVISO PARA BLOCK, QUE ANTES ESTAVA NONE*/
 
 }
 // colocar uma mensagem de erro quando nao autenticar o usuario

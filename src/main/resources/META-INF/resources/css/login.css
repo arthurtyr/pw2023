@@ -4,6 +4,7 @@
     border-color: #878484;
     background: antiquewhite;
     position: relative;
+    /* POSITION RELATIVE: PAI DO POSITION ABSOLUTE */
     height: 500px;
     width: 400px;
     top: 50px;
@@ -12,10 +13,12 @@
 
     
 }
+
 html, body {
     background-image: linear-gradient(to bottom,#E87880,#F7C8CB);
     height: 100%;
     width: 100%;
+    /*FAZENDO O BODY OCUPAR 100% DA TELA */
 }
 .invalid-feedback{
     padding-bottom: -10px;
@@ -31,7 +34,9 @@ html, body {
 .btn{
     font-size: small;
     background-image: linear-gradient(to top,#F52D39,#EC646D);
+    /*DEGRADE*/
 }
 .col {
     position: absolute;
+    /* POSITION ABSOLUTE: PODE SER MOVIDO LIVREMENTE APENAS DENTRO DO PAI(RELATIVE) */
 }
