@@ -17,6 +17,7 @@ function criarRequisicao(email,senha){
 }
 function autenticar(){
     if(validar_formulario()){
+        document.getElementById("vazio").style.display = "none";
         var requisicao = criarRequisicao(document.getElementById("email").value,document.getElementById("senha").value)
         fetch(requisicao)
             .then((response) => {
