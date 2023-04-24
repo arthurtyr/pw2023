@@ -5,15 +5,26 @@
     background: antiquewhite;
     position: relative;
     /* POSITION RELATIVE: PAI DO POSITION ABSOLUTE */
-    height: 500px;
+    height: 800px;
     width: 400px;
-    top: 103px;
-    margin: auto;
+    top: 10px;
+    left: 50px;
 
 
     
 }
+.cadlb{
+    z-index: 1;
+}
 
+.bloco input[type=checkbox]:checked ~ .bloco{
+    transform: translateX(50px);
+}
+
+.bloco input[type=checkbox]{
+    padding: 0;
+    margin: 0;
+}
 html, body {
     background-image: linear-gradient(to bottom,#E87880,#F7C8CB);
     height: 100%;

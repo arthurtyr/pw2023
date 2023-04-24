@@ -24,7 +24,7 @@ html,body{
     z-index: 1;
     background-color: rgba(16,16,16,.5);
     cursor: pointer;
-    width: 100%;
+
 }
 .sidebar nav{
      background-color: rgba(16,16,16,.5);
@@ -33,6 +33,7 @@ html,body{
      left: -250px;
      position: relative;
      transition: all .5s;
+
  }
 .sidebar ul{
     list-style: none;
