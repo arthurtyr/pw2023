@@ -1,0 +1,42 @@
+.bloco{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #878484;
+    background: antiquewhite;
+    position: relative;
+    /* POSITION RELATIVE: PAI DO POSITION ABSOLUTE */
+    height: 800px;
+    width: 400px;
+    top: 10px;
+    left: 50px;
+
+
+
+}
+
+html, body {
+    background-image: linear-gradient(to bottom,#E87880,#F7C8CB);
+    height: 100%;
+    width: 100%;
+    /*FAZENDO O BODY OCUPAR 100% DA TELA */
+}
+.invalid-feedback{
+    padding-bottom: -10px;
+    font-size: small;
+    padding-top: 20px;
+}
+.lbcad{
+    font-size: small;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+.btn{
+    font-size: small;
+    background-image: linear-gradient(to top,#F52D39,#EC646D);
+    /*DEGRADE*/
+}
+.col {
+    position: absolute;
+    /* POSITION ABSOLUTE: PODE SER MOVIDO LIVREMENTE APENAS DENTRO DO PAI(RELATIVE) */
+}

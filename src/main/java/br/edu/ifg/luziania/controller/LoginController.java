@@ -24,7 +24,7 @@ public class LoginController {
 
     @GET
     @Produces(MediaType.TEXT_HTML)
-    @Path("/login")
+    @Path("")
     public TemplateInstance login(){
         return login.instance();
     }
