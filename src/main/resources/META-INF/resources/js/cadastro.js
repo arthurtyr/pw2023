@@ -44,6 +44,7 @@ function cadastrar() {
                 console.log(JSON.stringify(json));
                 if(json.mensagem === "Usuario autenticado"){
                     alert("Cadastrado entre aspas");
+                    criarTabela();
 
                 }else if(json.mensagem === "Usuario nao autenticado"){
                     alert("Nao cadastrado entre aspas");
@@ -55,5 +56,16 @@ function cadastrar() {
 }
 
 function criarTabela(){
+    var tabela = document.getElementById("tabelaCadastro");
+
+
+    var linha = tabela.insertRow();
+    var email = linha.insertCell(0);
+    var nome = linha.insertCell(1);
+    var senha = linha.insertCell(2);
+
+    email.innerText = document.getElementById("email").value;
+    nome.innerText = document.getElementById("nome").value;
+    senha.innerText = document.getElementById("senha").value;
 
 }
