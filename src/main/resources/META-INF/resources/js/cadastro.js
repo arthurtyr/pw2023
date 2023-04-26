@@ -44,6 +44,7 @@ function cadastrar() {
                 console.log(JSON.stringify(json));
                 if(json.mensagem === "Usuario autenticado"){
                     alert("Cadastrado entre aspas");
+
                 }else if(json.mensagem === "Usuario nao autenticado"){
                     alert("Nao cadastrado entre aspas");
                 }
@@ -51,4 +52,8 @@ function cadastrar() {
     }else{
         alert("Nao validado");
     }
+}
+
+function criarTabela(){
+
 }

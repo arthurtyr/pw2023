@@ -10,48 +10,61 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="bloco" id="blocao">
-    <div class="row justify-content-center">
-        <div class="col-md-10 pt-3">
-            <h2>Cadastro</h2>
-        </div>
+    <div>
+        <table id="tabela">
+            <th>Email</th>
+            <th>Nome</th>
+            <th>Senha</th>
+            <td id="temail">
+            </td>
+            <td id="tnome">
+            </td>
+            <td id="senha">
+            </td>
+        </table>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div id="vazio" class="invalid-feedback" style="display:none;">
-                Os campos e-mail e senha são obrigatórios Verifique o formulário
+    <div class="bloco" id="blocao">
+        <div class="row justify-content-center">
+            <div class="col-md-10 pt-3">
+                <h2>Cadastro</h2>
             </div>
-            <label class="lbcad" for="email">E-mail</label>
-            <input id="email" class="form-control" type="email" name="email" >
         </div>
-    </div>
-
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <label class="lbcad" for="email">Nome de usuário</label>
-            <input id="nome" class="form-control" name="nome" >
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div id="vazio" class="invalid-feedback" style="display:none;">
+                    Os campos e-mail e senha são obrigatórios Verifique o formulário
+                </div>
+                <label class="lbcad" for="email">E-mail</label>
+                <input id="email" class="form-control" type="email" name="email" >
+            </div>
         </div>
-    </div>
 
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <label class="lbcad" for="senha">Senha</label>
-            <input id="senha" class="form-control" type="text" name="senha" >
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <label class="lbcad" for="email">Nome de usuário</label>
+                <input id="nome" class="form-control" name="nome" >
+            </div>
         </div>
-    </div>
 
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <label class="lbcad" for="senha">Confirme a sua senha</label>
-            <input id="confsenha" class="form-control" type="text" name="confsenha" >
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <label class="lbcad" for="senha">Senha</label>
+                <input id="senha" class="form-control" type="text" name="senha" >
+            </div>
         </div>
-    </div>
 
-
-    <div class="row justify-content-center pt-4">
-        <div class="d-grid col-md-10">
-            <button type="button" class="btn" onclick="cadastrar()">Cadastrar</button>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <label class="lbcad" for="senha">Confirme a sua senha</label>
+                <input id="confsenha" class="form-control" type="text" name="confsenha" >
+            </div>
         </div>
+
+
+        <div class="row justify-content-center pt-4">
+            <div class="d-grid col-md-10">
+                <button type="button" class="btn" onclick="cadastrar()">Cadastrar</button>
+            </div>
     </div>
 
 </div>
