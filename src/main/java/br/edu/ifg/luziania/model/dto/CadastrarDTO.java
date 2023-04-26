@@ -9,12 +9,12 @@ public class CadastrarDTO {
         this.email = email;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getNome() {
+        return nome;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setNome(String usuario) {
+        this.nome = usuario;
     }
 
     public String getSenha() {
@@ -34,7 +34,7 @@ public class CadastrarDTO {
     }
 
     private String email;
-    private String usuario;
+    private String nome;
     private String senha;
     private String confisenha;
 

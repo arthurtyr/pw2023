@@ -24,7 +24,7 @@ function autenticar(){
                 if(response.status === 200) {
                     return response.json();
                 } else {
-                    throw new Error("Ocorreu algum errno no servidor");
+                    throw new Error("Ocorreu algum erro no servidor");
                 }
             })
             .then(json => {
