@@ -31,10 +31,10 @@ public class CadastroController {
     @Path("/cadastrar")
     public Response cadastrar(CadastrarDTO cadastrarob){
         RetornoCadastroDTO retorno = new RetornoCadastroDTO();
-        if(cadastrarob.getEmail().equals("aninha") && cadastrarob.getNome().equals("tyr") && cadastrarob.getSenha().equals("123")){
-            retorno.setMensagem("Usuario autenticado");
+        if(cadastrarob.getEmail().equals("aninha")){
+            retorno.setMensagem("Email já cadastrado");
         }else{
-            retorno.setMensagem("Usuario nao autenticado");
+            retorno.setMensagem("Usuário cadastrado");
         }
         return Response.ok(retorno, MediaType.APPLICATION_JSON).build();
     }

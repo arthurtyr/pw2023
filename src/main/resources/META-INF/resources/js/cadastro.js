@@ -42,12 +42,12 @@ function cadastrar() {
             })
             .then(json =>{
                 console.log(JSON.stringify(json));
-                if(json.mensagem === "Usuario autenticado"){
-                    alert("Cadastrado entre aspas");
+                if(json.mensagem === "Usuário cadastrado"){
+                    alert("Cadastrado");
                     criarTabela();
 
-                }else if(json.mensagem === "Usuario nao autenticado"){
-                    alert("Nao cadastrado entre aspas");
+                }else if(json.mensagem === "Email já cadastrado"){
+                    alert("Email já está sendo utilizado");
                 }
             })
     }else{
@@ -55,17 +55,17 @@ function cadastrar() {
     }
 }
 
-function criarTabela(){
+function criarTabela(email, nome, senha){
     var tabela = document.getElementById("tabelaCadastro");
+    var corpoTabela = document.getElementById("corpoTabelaCadastro");
 
+    var linha = corpoTabela.insertRow();
+    var lemail = linha.insertCell(0);
+    var lnome = linha.insertCell(1);
+    var lsenha = linha.insertCell(2);
 
-    var linha = tabela.insertRow();
-    var email = linha.insertCell(0);
-    var nome = linha.insertCell(1);
-    var senha = linha.insertCell(2);
-
-    email.innerText = document.getElementById("email").value;
-    nome.innerText = document.getElementById("nome").value;
-    senha.innerText = document.getElementById("senha").value;
+    lemail.innerText = email;
+    lnome.innerText = nome;
+    lsenha.innerText = senha;
 
 }
