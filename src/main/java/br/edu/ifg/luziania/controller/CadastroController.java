@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 public class CadastroController {
 
     private final Template cadastro;
+    private CadastrarDTO cadastrarob;
 
     public CadastroController(Template cadastro){
         this.cadastro = cadastro;
@@ -31,11 +32,18 @@ public class CadastroController {
     @Path("/cadastrar")
     public Response cadastrar(CadastrarDTO cadastrarob){
         RetornoCadastroDTO retorno = new RetornoCadastroDTO();
+        this.cadastrarob = cadastrarob;
         if(cadastrarob.getEmail().equals("aninha")){
             retorno.setMensagem("Email já cadastrado");
+            return Response.ok(retorno, MediaType.APPLICATION_JSON).build();
         }else{
-            retorno.setMensagem("Usuário cadastrado");
+            return Response.status(Response.Status.CREATED).entity(cadastrarob).build();
         }
-        return Response.ok(retorno, MediaType.APPLICATION_JSON).build();
+    }
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/cadastrar")
+    public Response cadastros(){
+        return Response.ok().entity(cadastrarob).build();
     }
 }

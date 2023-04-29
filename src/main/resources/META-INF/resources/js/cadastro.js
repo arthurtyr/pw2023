@@ -28,6 +28,15 @@ function criarCadastro(email, nome, senha, confsenha){
         }),
     });
 }
+function getCadastro(){
+    return new Request("http://localhost:8080/cadastrar", {
+        method: "GET",
+        headers:{
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        }
+    })
+}
 
 function cadastrar() {
     if(validar_formulario()){
@@ -40,19 +49,18 @@ function cadastrar() {
                     throw new Error("Ocorreu algum erro no servidor");
                 }
             })
-            .then(json =>{
-                console.log(JSON.stringify(json));
-                if(json.mensagem === "Usuário cadastrado"){
-                    alert("Cadastrado");
-                    criarTabela();
-
-                }else if(json.mensagem === "Email já cadastrado"){
-                    alert("Email já está sendo utilizado");
-                }
-            })
     }else{
         alert("Nao validado");
     }
+    var getcadastro = getCadastro();
+    fetch(getcadastro)
+        .then((response) =>{
+            if(response.status === 200){
+                return response.json();
+            } else{
+                throw new Error("Ocorreu algum erro no servidor");
+            }
+        })
 }
 
 function criarTabela(email, nome, senha){
