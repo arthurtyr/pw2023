@@ -46,13 +46,11 @@ function limpar(){
 }
 function cadastrar() {
     if(validar_formulario()){
-        var cadastro = criarCadastro(document.getElementById("email").value,document.getElementById("nome").value,document.getElementById("senha").value,document.getElementById("confsenha").value);
+        const cadastro = criarCadastro(document.getElementById("email").value,document.getElementById("nome").value,document.getElementById("senha").value,document.getElementById("confsenha").value);
         limpar();
         fetch(cadastro)
             .then((response) =>{
-                if(response.status === 201){
-                    return response.json();
-                } else if(response.status === 200) {
+                if(response.status === 201) {
                     return response.json();
                 } else{
                     throw new Error("Ocorreu algum erro no servidor");
@@ -67,12 +65,12 @@ function cadastrar() {
     }
 }
 function get(){
-    var getcadastro = getCadastro();
+    const getcadastro = getCadastro();
     fetch(getcadastro)
         .then((response) =>{
             if(response.status === 200){
                 return response.json();
-            } else{
+            }else{
                 throw new Error("Ocorreu algum erro no servidor");
             }
         })
@@ -84,13 +82,12 @@ function get(){
         })
 }
 function criarTabela(email, nome, senha){
-    var tabela = document.getElementById("tabelaCadastro");
-    var corpoTabela = document.getElementById("corpoTabelaCadastro");
+    const corpoTabela = document.getElementById("corpoTabelaCadastro");
 
-    var linha = corpoTabela.insertRow();
-    var lemail = linha.insertCell(0);
-    var lnome = linha.insertCell(1);
-    var lsenha = linha.insertCell(2);
+    const linha = corpoTabela.insertRow();
+    const lemail = linha.insertCell(0);
+    const lnome = linha.insertCell(1);
+    const lsenha = linha.insertCell(2);
 
     lemail.innerText = email;
     lnome.innerText = nome;

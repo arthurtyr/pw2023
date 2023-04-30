@@ -31,19 +31,15 @@ public class CadastroController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/cadastrar")
     public Response cadastrar(CadastrarDTO cadastrarob){
-        RetornoCadastroDTO retorno = new RetornoCadastroDTO();
-        if(cadastrarob.getEmail().equals("aninha")){
-            retorno.setMensagem("utilizado");
-            return Response.ok(retorno, MediaType.APPLICATION_JSON).build();
-        }else{
             this.cadastrarob = cadastrarob;
             return Response.status(Response.Status.CREATED).entity(cadastrarob).build();
-        }
+
     }
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/cadastrar")
     public Response cadastros(){
         return Response.ok().entity(cadastrarob).build();
+
     }
 }
