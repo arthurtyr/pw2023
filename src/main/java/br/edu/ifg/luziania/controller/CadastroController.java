@@ -32,11 +32,11 @@ public class CadastroController {
     @Path("/cadastrar")
     public Response cadastrar(CadastrarDTO cadastrarob){
         RetornoCadastroDTO retorno = new RetornoCadastroDTO();
-        this.cadastrarob = cadastrarob;
         if(cadastrarob.getEmail().equals("aninha")){
-            retorno.setMensagem("Email já cadastrado");
+            retorno.setMensagem("utilizado");
             return Response.ok(retorno, MediaType.APPLICATION_JSON).build();
         }else{
+            this.cadastrarob = cadastrarob;
             return Response.status(Response.Status.CREATED).entity(cadastrarob).build();
         }
     }
