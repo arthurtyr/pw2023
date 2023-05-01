@@ -1,6 +1,12 @@
 package br.edu.ifg.luziania.model.dto;
 
 public class CadastrarDTO {
+
+    private String email;
+    private String nome;
+    private String senha;
+    private String confisenha;
+
     public String getEmail() {
         return email;
     }
@@ -32,11 +38,4 @@ public class CadastrarDTO {
     public void setConfisenha(String confisenha) {
         this.confisenha = confisenha;
     }
-
-    private String email;
-    private String nome;
-    private String senha;
-    private String confisenha;
-
-
 }
