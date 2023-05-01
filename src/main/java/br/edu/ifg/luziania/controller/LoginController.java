@@ -44,8 +44,4 @@ public class LoginController {
             return Response.ok(retorno, MediaType.APPLICATION_JSON).build();
         }
     }
-
-
-
-
 }

@@ -15,6 +15,7 @@ public class CadastroController {
     private final Template cadastro;
     private CadastrarDTO cadastrarob;
 
+    private RetornoCadastroDTO mensagem;
     public CadastroController(Template cadastro){
         this.cadastro = cadastro;
     }
@@ -31,15 +32,26 @@ public class CadastroController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/cadastrar")
     public Response cadastrar(CadastrarDTO cadastrarob){
+        RetornoCadastroDTO retorno = new RetornoCadastroDTO();
+        if(cadastrarob.getEmail().equals("aninha@gmail.com")){
+            retorno.setMensagem("utilizado");
+        }else{
+            retorno.setMensagem("cadastrado");
             this.cadastrarob = cadastrarob;
-            return Response.status(Response.Status.CREATED).entity(cadastrarob).build();
+        }
+        this.mensagem = retorno;
+        return Response.status(Response.Status.CREATED).entity(retorno).build();
+
 
     }
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/cadastrar")
     public Response cadastros(){
-        return Response.ok().entity(cadastrarob).build();
-
+        if(mensagem.getMensagem().equals("cadastrado")){
+            return Response.ok().entity(cadastrarob).build();
+        }else{
+            return Response.ok(mensagem, MediaType.APPLICATION_JSON).build();
+        }
     }
 }

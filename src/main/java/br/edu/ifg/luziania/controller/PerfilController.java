@@ -1,7 +1,5 @@
 package br.edu.ifg.luziania.controller;
 
-import br.edu.ifg.luziania.model.dto.CadastrarDTO;
-import br.edu.ifg.luziania.model.dto.RetornoCadastroDTO;
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 

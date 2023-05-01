@@ -39,9 +39,9 @@ function getCadastro(){
     })
 }
 function limpar(){
-    return document.getElementById("email").value = "" ,
-        document.getElementById("nome").value = "",
-        document.getElementById("senha").value = "",
+        document.getElementById("email").value = "" ;
+        document.getElementById("nome").value = "";
+        document.getElementById("senha").value = "";
         document.getElementById("confsenha").value = "";
 }
 function cadastrar() {
@@ -56,8 +56,7 @@ function cadastrar() {
                     throw new Error("Ocorreu algum erro no servidor");
                 }
             })
-            .then(get);
-
+            .then(get)
 
     }else{
         alert("Nao validado");
@@ -75,10 +74,13 @@ function get(){
             }
         })
         .then(json =>{
-            const cadinfo = JSON.stringify(json);
-            const obj = JSON.parse(cadinfo);
-            criarTabela(obj.email,obj.nome,obj.senha);
-
+            if(JSON.stringify(json) === "{\"mensagem\":\"utilizado\"}"){
+                alert("email ja utilizado");
+            }else{
+                const cadinfo = JSON.stringify(json);
+                const obj = JSON.parse(cadinfo);
+                criarTabela(obj.email,obj.nome,obj.senha);
+            }
         })
 }
 function criarTabela(email, nome, senha){
