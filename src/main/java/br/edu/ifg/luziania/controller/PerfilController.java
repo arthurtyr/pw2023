@@ -21,5 +21,4 @@ public class PerfilController {
     public TemplateInstance perfil(){
         return perfil.instance();
     }
-
 }
