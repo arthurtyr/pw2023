@@ -14,7 +14,6 @@ public class CadastroController {
 
     private final Template cadastro;
     private CadastrarDTO cadastrarob;
-
     private RetornoDTO mensagem;
     public CadastroController(Template cadastro){
         this.cadastro = cadastro;
