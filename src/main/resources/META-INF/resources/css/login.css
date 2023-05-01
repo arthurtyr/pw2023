@@ -40,3 +40,10 @@ html, body {
     position: absolute;
     /* POSITION ABSOLUTE: PODE SER MOVIDO LIVREMENTE APENAS DENTRO DO PAI(RELATIVE) */
 }
+.cadlink{
+    font-size: small;
+    color: red;
+}
+.cadlink:hover{
+    cursor: pointer;
+}

@@ -37,3 +37,11 @@ html, body {
     position: absolute;
     /* POSITION ABSOLUTE: PODE SER MOVIDO LIVREMENTE APENAS DENTRO DO PAI(RELATIVE) */
 }
+
+.loglink{
+    font-size: small;
+    color: red;
+}
+.loglink:hover{
+    cursor: pointer;
+}

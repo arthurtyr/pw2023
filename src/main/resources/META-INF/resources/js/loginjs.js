@@ -41,3 +41,7 @@ function autenticar(){
 
 }
 // colocar uma mensagem de erro quando nao autenticar o usuario
+
+function irCadastro(){
+    window.location.href = window.location.origin+'/cadastro';
+}

@@ -94,3 +94,6 @@ function criarTabela(email, nome, senha){
     lsenha.innerText = senha;
 
 }
+function irLogin(){
+    window.location.href = window.location.origin+'/login';
+}
