@@ -43,6 +43,27 @@ function perficilizar() {
     }
 }
 
+function get(){
+    const getperfil = getPerfil();
+    fetch(getperfil)
+        .then((response) =>{
+            if(response.status === 200){
+                return response.json();
+            }else{
+                throw new Error("Ocorreu algum erro no servidor");
+            }
+        })
+        .then(json =>{
+            if(JSON.stringify(json) === "{\"mensagem\":\"utilizado\"}"){
+                alert("nome de perfil já utilizado");
+            }else{
+                const perfilinfo = JSON.stringify(json);
+                const obj = JSON.parse(perfilinfo);
+                criarTabela(obj.nomeperfil,obj.trocanomeperfil,obj.acessolog,obj.criarficha);
+            }
+        })
+}
+
 function criarTabela(nomeperfil, trocanomeperfil, acessolog, criarficha){
     const corpoTabela = document.getElementById("corpoTabelaCadastro");
 
@@ -56,5 +77,4 @@ function criarTabela(nomeperfil, trocanomeperfil, acessolog, criarficha){
     ltrocanomeperfil.innerText = trocanomeperfil;
     lacessolog.innerText = acessolog;
     lcriarficha.innerText = criarficha;
-
 }
