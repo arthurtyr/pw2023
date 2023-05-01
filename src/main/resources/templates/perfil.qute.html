@@ -28,24 +28,31 @@
 <form>
     <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">☆</span>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        <input id="nomeperfil" type="text" class="form-control" placeholder="Nome do perfil" aria-label="Username" aria-describedby="basic-addon1">
     </div>
 
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-            Default checkbox
+        <input class="form-check-input" type="checkbox" value="" id="trocanomeperfil">
+        <label class="form-check-label" for="trocanomeperfil">
+            Trocar nome de perfil
         </label>
     </div>
 
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-        <label class="form-check-label" for="flexCheckChecked">
-            Checked checkbox
+        <input class="form-check-input" type="checkbox" value="" id="acessolog">
+        <label class="form-check-label" for="acessolog">
+            Acesso ao Log
         </label>
     </div>
 
-    <button type="button" class="btn btn-dark">Adicionar</button>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="criarficha">
+        <label class="form-check-label" for="criarficha">
+            Criar Ficha
+        </label>
+    </div>
+
+    <button type="button" class="btn btn-dark" onclick="perficilizar()">Adicionar</button>
 </form>
 
 <table class="table">
