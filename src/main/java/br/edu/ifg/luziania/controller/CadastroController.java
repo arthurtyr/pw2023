@@ -41,9 +41,8 @@ public class CadastroController {
         }
         this.mensagem = retorno;
         return Response.status(Response.Status.CREATED).entity(retorno).build();
-
-
     }
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/cadastrar")
