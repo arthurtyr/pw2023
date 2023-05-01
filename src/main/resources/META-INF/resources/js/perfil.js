@@ -23,11 +23,27 @@ function getPerfil(){
         }
     })
 }
+function check(){
+    if(document.getElementById("trocanomeperfil").checked){
+        document.getElementById("trocanomeperfil").value = "sim";
+    }else{
+        document.getElementById("trocanomeperfil").value = "nao";
+    }
+    if(document.getElementById("acessolog").checked){
+        document.getElementById("acessolog").value = "sim";
+    }else{
+        document.getElementById("acessolog").value = "nao";
+    }
+    if(document.getElementById("criarficha").checked){
+        document.getElementById("criarficha").value = "sim";
+    }else{
+        document.getElementById("criarficha").value = "nao";
+    }
+}
 
 function perficilizar() {
-    if(validar_formulario()){
+        check();
         const perfil = criarPerfil(document.getElementById("nomeperfil").value,document.getElementById("trocanomeperfil").value,document.getElementById("acessolog").value,document.getElementById("criarficha").value);
-        limpar();
         fetch(perfil)
             .then((response) =>{
                 if(response.status === 201) {
@@ -38,9 +54,6 @@ function perficilizar() {
             })
             .then(get)
 
-    }else{
-        alert("Nao validado");
-    }
 }
 
 function get(){
@@ -54,7 +67,7 @@ function get(){
             }
         })
         .then(json =>{
-            if(JSON.stringify(json) === "{\"mensagem\":\"utilizado\"}"){
+            if(JSON.stringify(json) === "{\"mensagem\":\"Utilizado\"}"){
                 alert("nome de perfil já utilizado");
             }else{
                 const perfilinfo = JSON.stringify(json);
@@ -65,7 +78,7 @@ function get(){
 }
 
 function criarTabela(nomeperfil, trocanomeperfil, acessolog, criarficha){
-    const corpoTabela = document.getElementById("corpoTabelaCadastro");
+    const corpoTabela = document.getElementById("ctabela");
 
     const linha = corpoTabela.insertRow();
     const lnomeperfil = linha.insertCell(0);
