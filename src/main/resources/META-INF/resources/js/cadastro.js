@@ -77,6 +77,7 @@ function get(){
             if(JSON.stringify(json) === "{\"mensagem\":\"utilizado\"}"){
                 alert("email ja utilizado");
             }else{
+                alert("cadastrado");
                 const cadinfo = JSON.stringify(json);
                 const obj = JSON.parse(cadinfo);
                 criarTabela(obj.email,obj.nome,obj.senha);
