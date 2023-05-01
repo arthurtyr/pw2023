@@ -1,7 +1,7 @@
 package br.edu.ifg.luziania.controller;
 
 import br.edu.ifg.luziania.model.dto.CadastrarDTO;
-import br.edu.ifg.luziania.model.dto.RetornoCadastroDTO;
+import br.edu.ifg.luziania.model.dto.RetornoDTO;
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 
@@ -15,7 +15,7 @@ public class CadastroController {
     private final Template cadastro;
     private CadastrarDTO cadastrarob;
 
-    private RetornoCadastroDTO mensagem;
+    private RetornoDTO mensagem;
     public CadastroController(Template cadastro){
         this.cadastro = cadastro;
     }
@@ -32,7 +32,7 @@ public class CadastroController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/cadastrar")
     public Response cadastrar(CadastrarDTO cadastrarob){
-        RetornoCadastroDTO retorno = new RetornoCadastroDTO();
+        RetornoDTO retorno = new RetornoDTO();
         if(cadastrarob.getEmail().equals("aninha@gmail.com")){
             retorno.setMensagem("utilizado");
         }else{

@@ -1,7 +1,7 @@
 package br.edu.ifg.luziania.controller;
 
 import br.edu.ifg.luziania.model.dto.AutenticacaoDTO;
-import br.edu.ifg.luziania.model.dto.RetornoAutenticacaoDTO;
+import br.edu.ifg.luziania.model.dto.RetornoDTO;
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 
@@ -34,7 +34,7 @@ public class LoginController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/autenticar")
     public Response autenticar(AutenticacaoDTO autenticacao){
-        RetornoAutenticacaoDTO retorno = new RetornoAutenticacaoDTO();
+        RetornoDTO retorno = new RetornoDTO();
         if (autenticacao.getEmail().equals("aninha@gmail.com") && autenticacao.getSenha().equals("123")) {
             retorno.setMensagem("Usuário autenticado!");
             return Response.ok(retorno, MediaType.APPLICATION_JSON).build();
