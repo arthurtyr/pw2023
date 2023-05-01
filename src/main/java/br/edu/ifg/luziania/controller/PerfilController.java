@@ -16,9 +16,17 @@ public class PerfilController {
     }
 
     @GET
-    @Produces({MediaType.TEXT_HTML})
+    @Produces(MediaType.TEXT_HTML)
     @Path("/perfil")
     public TemplateInstance perfil(){
         return perfil.instance();
+    }
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/criarperfil")
+    public Response criarperfil(){
+        return Response.ok().build();
     }
 }
