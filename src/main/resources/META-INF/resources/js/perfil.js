@@ -29,3 +29,7 @@ function criarTabela(username){
 
     lusername.innerText = username;
 }
+
+function irPrincipal(){
+    window.location.href = window.location.origin+'/principal';
+}
