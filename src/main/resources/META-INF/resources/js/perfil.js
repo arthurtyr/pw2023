@@ -1,3 +1,7 @@
+function validar(){
+    return document.getElementById("nomeperfil").value !== "";
+}
+
 function criarPerfil(nomeperfil, trocanomeperfil, acessolog, criarficha){
     return new Request("http://localhost:8080/criarperfil", {
         method: "POST",
@@ -42,18 +46,23 @@ function check(){
 }
 
 function perficilizar() {
-        check();
-        const perfil = criarPerfil(document.getElementById("nomeperfil").value,document.getElementById("trocanomeperfil").value,document.getElementById("acessolog").value,document.getElementById("criarficha").value);
-        fetch(perfil)
-            .then((response) =>{
-                if(response.status === 201) {
-                    return response.json();
-                } else{
-                    throw new Error("Ocorreu algum erro no servidor");
-                }
-            })
-            .then(get)
-
+        if(validar()){
+            check();
+            const perfil = criarPerfil(document.getElementById("nomeperfil").value,document.getElementById("trocanomeperfil").value,document.getElementById("acessolog").value,document.getElementById("criarficha").value);
+            limpar();
+            fetch(perfil)
+                .then((response) =>{
+                    if(response.status === 201) {
+                        return response.json();
+                    } else{
+                        throw new Error("Ocorreu algum erro no servidor");
+                    }
+                })
+                .then(get)
+        }
+        else {
+            alert("O campo Nome do perfil é obrigatório");
+        }
 }
 
 function get(){
@@ -76,7 +85,12 @@ function get(){
             }
         })
 }
-
+function limpar(){
+    document.getElementById("nomeperfil").value = "" ;
+    document.getElementById("trocanomeperfil").checked = false;
+    document.getElementById("acessolog").checked = false;
+    document.getElementById("criarficha").checked = false;
+}
 function criarTabela(nomeperfil, trocanomeperfil, acessolog, criarficha){
     const corpoTabela = document.getElementById("ctabela");
 
