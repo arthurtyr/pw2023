@@ -1,28 +1,9 @@
-package br.edu.ifg.luziania.model.entity;
+package br.edu.ifg.luziania.model.dto;
 
-import javax.persistence.*;
-import javax.validation.Constraint;
-
-@Entity
-@Table(uniqueConstraints={
-        @UniqueConstraint(columnNames = {"email", "senha"})
-})
-public class Usuario {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+public class UsuarioDTO {
     private String nome;
     private String email;
     private String senha;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
