@@ -5,7 +5,6 @@ public class CadastrarDTO {
     private String email;
     private String nome;
     private String senha;
-    private String confisenha;
 
     public String getEmail() {
         return email;
@@ -31,11 +30,4 @@ public class CadastrarDTO {
         this.senha = senha;
     }
 
-    public String getConfisenha() {
-        return confisenha;
-    }
-
-    public void setConfisenha(String confisenha) {
-        this.confisenha = confisenha;
-    }
 }

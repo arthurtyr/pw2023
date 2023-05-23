@@ -5,6 +5,7 @@ import br.edu.ifg.luziania.model.dto.RespostaDTO;
 import br.edu.ifg.luziania.model.dto.RetornoAutenticacaoDTO;
 import br.edu.ifg.luziania.model.dto.UsuarioDTO;
 import br.edu.ifg.luziania.model.entity.Usuario;
+import br.edu.ifg.luziania.model.util.Sessao;
 
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
@@ -18,6 +19,9 @@ public class UsuarioBO {
     @Inject
     UsuarioDAO usuarioDAO;
 
+    @Inject
+    Sessao sessao;
+
     public RetornoAutenticacaoDTO autenticar(String email, String senha){
         Usuario usuario = usuarioDAO.getByEmailAndSenha(email, senha);
         RetornoAutenticacaoDTO retorno = new RetornoAutenticacaoDTO();
@@ -29,6 +33,7 @@ public class UsuarioBO {
             retorno.setUrl("/principal");
             retorno.setAutenticado(true);
             retorno.setMensagem("Olá "+usuario.getNome()+"!");
+            sessao.setNome(usuario.getNome());
         }
         return retorno;
     }
