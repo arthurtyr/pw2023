@@ -53,7 +53,7 @@ public class UsuarioBO {
             usuarioDAO.save(entity);
             respostaDTO.setStatus(200);
             respostaDTO.setMensagem("Usuário salvo com sucesso!");
-            respostaDTO.setUrl("/");
+            respostaDTO.setUrl("/login");
         }catch (Exception e){
             respostaDTO.setStatus(500);
             respostaDTO.setMensagem("Falha ao salvar usuário!");

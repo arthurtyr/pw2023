@@ -15,11 +15,12 @@ import javax.ws.rs.core.Response;
 
 @Path("usuario")
 public class UsuarioController {
+
+    @Inject
+    UsuarioBO usuarioBO;
     private final Template cadastro;
     //cria uma variavel Template com o mesmo nome do arquivo html(cadastro)
 
-    @Inject
-    UsuarioBO usuarioOB;
     public UsuarioController(Template cadastro){
         this.cadastro = cadastro;
     }
@@ -37,7 +38,7 @@ public class UsuarioController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/cadastrar")
     public Response salvar(UsuarioDTO dto){
-        RespostaDTO respostaDTO = usuarioOB.salvar(dto);
+        RespostaDTO respostaDTO = usuarioBO.salvar(dto);
         return Response
                 .status(respostaDTO.getStatus())
                 .entity(respostaDTO)
