@@ -1,7 +1,6 @@
 package br.edu.ifg.luziania.controller;
 
 import br.edu.ifg.luziania.model.bo.PerfilBO;
-import br.edu.ifg.luziania.model.dto.CadastroPerfilDTO;
 import br.edu.ifg.luziania.model.dto.PerfilRetornoDTO;
 import br.edu.ifg.luziania.model.util.ErroTemplates;
 import br.edu.ifg.luziania.model.util.Sessao;
@@ -12,40 +11,37 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
 @Path("")
-public class PerfilController {
+public class TabelaPerfilController {
 
     @Inject
     Sessao sessao;
-
     @Inject
     PerfilBO perfilBO;
-    private final Template perfil;
+    private final Template tabelaperfil;
 
-    public PerfilController(Template perfil){
-        this.perfil = perfil;
+    public TabelaPerfilController(Template tabelaperfil) {
+        this.tabelaperfil = tabelaperfil;
     }
-
     @GET
     @Produces(MediaType.TEXT_HTML)
-    @Path("/perfil")
-    public TemplateInstance perfil(){
+    @Path("/tabelaperfil")
+    public TemplateInstance tabelaperfil(){
         if(sessao.getNome().isEmpty())
             return ErroTemplates.proibido();
-        return perfil.instance();
+        return tabelaperfil.instance();
     }
-
-    @POST
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/criarperfil")
-    public Response criarperfil(CadastroPerfilDTO dto) {
-        PerfilRetornoDTO respostaDTO = perfilBO.salvar(dto);
+    @Path("/listar")
+    public Response tabela(){
+        PerfilRetornoDTO retornoDTO = perfilBO.listar();
+
         return Response
-                .status(respostaDTO.getStatus())
-                .entity(respostaDTO)
+                .status(retornoDTO.getStatus())
+                .entity(retornoDTO)
                 .build();
     }
-
 
 }

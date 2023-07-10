@@ -28,14 +28,7 @@
 <form>
     <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">☆</span>
-        <input id="nomeperfil" type="text" class="form-control" placeholder="Nome do perfil" aria-label="Username" aria-describedby="basic-addon1">
-    </div>
-
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="trocanomeperfil">
-        <label class="form-check-label" for="trocanomeperfil">
-            Trocar nome de perfil
-        </label>
+        <input id="nome" type="text" class="form-control" placeholder="Nome do perfil" aria-label="Username" aria-describedby="basic-addon1">
     </div>
 
     <div class="form-check">
@@ -46,34 +39,15 @@
     </div>
 
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="criarficha">
+        <input class="form-check-input" type="checkbox" value="" id="excluirusuario">
         <label class="form-check-label" for="criarficha">
-            Criar Ficha
+            Excluir usuário
         </label>
     </div>
 
     <button type="button" class="btn btn-dark" onclick="perficilizar()">Adicionar</button>
 </form>
 
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">Nome de perfil</th>
-        <th scope="col">Trocar nome de perfil</th>
-        <th scope="col">Acesso ao log</th>
-        <th scope="col">Criar uma ficha</th>
-    </tr>
-    </thead>
-
-    <tbody id="ctabela">
-        <tr>
-            <td>aninha</td>
-            <td>sim</td>
-            <td>sim</td>
-            <td>sim</td>
-        </tr>
-    </tbody>
-</table>
 
 </body>
 </html>

@@ -1,11 +1,16 @@
 package br.edu.ifg.luziania.model.dto;
 
-public class RespostaDTO {
+import br.edu.ifg.luziania.model.entity.Perfil;
+
+import java.util.List;
+
+public class PerfilRetornoDTO {
 
     private Integer status;
-    private String mensagem;
-    private String url;
 
+    private String mensagem;
+
+    private List<Perfil> entity;
     public Integer getStatus() {
         return status;
     }
@@ -22,11 +27,12 @@ public class RespostaDTO {
         this.mensagem = mensagem;
     }
 
-    public String getUrl() {
-        return url;
+    public List<Perfil> getEntity() {
+        return entity;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setEntity(List<Perfil> entity) {
+        this.entity = entity;
     }
+
 }

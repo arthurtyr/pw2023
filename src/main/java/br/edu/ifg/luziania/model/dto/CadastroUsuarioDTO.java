@@ -1,6 +1,6 @@
 package br.edu.ifg.luziania.model.dto;
 
-public class UsuarioDTO {
+public class CadastroUsuarioDTO {
     private String nome;
     private String email;
     private String senha;

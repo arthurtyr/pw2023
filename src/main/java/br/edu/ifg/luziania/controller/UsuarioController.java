@@ -1,10 +1,8 @@
 package br.edu.ifg.luziania.controller;
 
 import br.edu.ifg.luziania.model.bo.UsuarioBO;
-import br.edu.ifg.luziania.model.dto.CadastrarDTO;
-import br.edu.ifg.luziania.model.dto.RespostaDTO;
-import br.edu.ifg.luziania.model.dto.RetornoDTO;
-import br.edu.ifg.luziania.model.dto.UsuarioDTO;
+import br.edu.ifg.luziania.model.dto.CadastroUsuarioRetornoDTO;
+import br.edu.ifg.luziania.model.dto.CadastroUsuarioDTO;
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 
@@ -37,8 +35,8 @@ public class UsuarioController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/cadastrar")
-    public Response salvar(UsuarioDTO dto){
-        RespostaDTO respostaDTO = usuarioBO.salvar(dto);
+    public Response salvar(CadastroUsuarioDTO dto){
+        CadastroUsuarioRetornoDTO respostaDTO = usuarioBO.salvar(dto);
         return Response
                 .status(respostaDTO.getStatus())
                 .entity(respostaDTO)

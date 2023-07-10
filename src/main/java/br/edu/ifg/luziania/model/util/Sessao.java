@@ -11,7 +11,7 @@ public class Sessao {
     private List<String> permissoes;
 
     public Sessao(){
-        this.permissoes = new ArrayList<>();
+        this.permissoes = new ArrayList<>(2);
         this.nome = "";
     }
 
