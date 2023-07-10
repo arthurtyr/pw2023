@@ -1,7 +1,10 @@
 package br.edu.ifg.luziania.controller;
 
 import br.edu.ifg.luziania.model.bo.PerfilBO;
+import br.edu.ifg.luziania.model.bo.RegistroBO;
 import br.edu.ifg.luziania.model.dto.PerfilRetornoDTO;
+import br.edu.ifg.luziania.model.dto.RegistroDTO;
+import br.edu.ifg.luziania.model.dto.RegistroRetornoDTO;
 import br.edu.ifg.luziania.model.util.ErroTemplates;
 import br.edu.ifg.luziania.model.util.Sessao;
 import io.quarkus.qute.Template;
@@ -14,7 +17,8 @@ import javax.ws.rs.core.Response;
 
 @Path("")
 public class RegistroController {
-
+    @Inject
+    RegistroBO registroBO;
     @Inject
     Sessao sessao;
     @Inject
@@ -28,17 +32,22 @@ public class RegistroController {
     @Produces(MediaType.TEXT_HTML)
     @Path("/registro")
     public TemplateInstance registro(){
-        if(sessao.getPermissoes().isEmpty()){
+        RegistroDTO registroDTO = new RegistroDTO();
+        registroDTO.setUsuario(sessao.getNome());
+        if(sessao.getPermissoes().isEmpty() || sessao.getPermissoes().get(0).equals("nao")){
+            registroDTO.setAcao("Acessou Sem Permissao a pagina Registros");
+            registroBO.salvar(registroDTO);
             return ErroTemplates.proibido();
-        }else if(sessao.getPermissoes().get(1).equals("nao"))
-            return ErroTemplates.proibido();
+        }
+        registroDTO.setAcao("Acessou a pagina Registros");
+        registroBO.salvar(registroDTO);
         return registro.instance();
     }
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/listar")
+    @Path("/listarlog")
     public Response tabela(){
-        PerfilRetornoDTO retornoDTO = perfilBO.listar();
+        RegistroRetornoDTO retornoDTO = registroBO.listarlog();
 
         return Response
                 .status(retornoDTO.getStatus())

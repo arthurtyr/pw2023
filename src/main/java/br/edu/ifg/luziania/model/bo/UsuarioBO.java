@@ -5,6 +5,7 @@ import br.edu.ifg.luziania.model.dao.UsuarioDAO;
 import br.edu.ifg.luziania.model.dto.CadastroUsuarioRetornoDTO;
 import br.edu.ifg.luziania.model.dto.AutenticacaoUsuarioRetornoDTO;
 import br.edu.ifg.luziania.model.dto.CadastroUsuarioDTO;
+import br.edu.ifg.luziania.model.dto.RegistroDTO;
 import br.edu.ifg.luziania.model.entity.Perfil;
 import br.edu.ifg.luziania.model.entity.Usuario;
 import br.edu.ifg.luziania.model.util.Sessao;
@@ -25,7 +26,8 @@ public class UsuarioBO {
     UsuarioDAO usuarioDAO;
     @Inject
     PerfilDAO perfilDAO;
-
+    @Inject
+    RegistroBO registroBO;
     @Inject
     Sessao sessao;
 
@@ -33,15 +35,18 @@ public class UsuarioBO {
         Usuario usuario = usuarioDAO.getByEmailAndSenha(email, senha);
         List<Perfil> perfis = perfilDAO.getPerfis();
         List<String> permissoes = new ArrayList<>();
-        AutenticacaoUsuarioRetornoDTO retorno = new AutenticacaoUsuarioRetornoDTO();
+        AutenticacaoUsuarioRetornoDTO retornoDTO = new AutenticacaoUsuarioRetornoDTO();
+        RegistroDTO logDTO = new RegistroDTO();
         if (isNull(usuario)){
-            retorno.setUrl("/");
-            retorno.setAutenticado(false);
-            retorno.setMensagem("Email ou senha inválido!");
+            retornoDTO.setUrl("/login");
+            retornoDTO.setAutenticado(false);
+            retornoDTO.setMensagem("Email ou senha inválido!");
+            logDTO.setAcao("Email ou senha invalido");
         } else {
-            retorno.setUrl("/principal");
-            retorno.setAutenticado(true);
-            retorno.setMensagem("Olá "+usuario.getNome()+"!");
+            retornoDTO.setUrl("/principal");
+            retornoDTO.setAutenticado(true);
+            retornoDTO.setMensagem("Olá "+usuario.getNome()+"!");
+            logDTO.setAcao("Autenticacao realizada com sucesso");
             sessao.setNome(usuario.getNome());
             boolean contemPerfil = false;
             for (Perfil perfil : perfis) {
@@ -59,13 +64,16 @@ public class UsuarioBO {
 
 
         }
-        return retorno;
+        logDTO.setUsuario(sessao.getNome());
+        registroBO.salvar(logDTO);
+        return retornoDTO;
     }
 
     @Transactional
     public CadastroUsuarioRetornoDTO salvar(CadastroUsuarioDTO dto) {
 
         CadastroUsuarioRetornoDTO respostaDTO = new CadastroUsuarioRetornoDTO();
+        RegistroDTO logDTO = new RegistroDTO();
 
         Usuario entity = new Usuario();
 
@@ -77,13 +85,16 @@ public class UsuarioBO {
             usuarioDAO.save(entity);
             respostaDTO.setStatus(200);
             respostaDTO.setMensagem("Usuário salvo com sucesso!");
+            logDTO.setAcao("Usuario salvo com sucesso");
             respostaDTO.setUrl("/login");
         }catch (Exception e){
             respostaDTO.setStatus(500);
             respostaDTO.setMensagem("Falha ao salvar usuário!");
+            logDTO.setAcao("Falha ao salvar usuario");
             respostaDTO.setUrl("/usuario");
         }
-
+        logDTO.setUsuario(sessao.getNome());
+        registroBO.salvar(logDTO);
         return respostaDTO;
     }
 }

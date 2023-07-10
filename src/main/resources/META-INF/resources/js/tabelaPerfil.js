@@ -37,7 +37,7 @@ function get(){
 }
 
 function getPerfil(){
-    return new Request("http://localhost:8080/listar", {
+    return new Request("http://localhost:8080/listarperfis", {
         method: "GET",
         headers:{
             "Accept": "application/json",

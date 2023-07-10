@@ -1,7 +1,9 @@
 package br.edu.ifg.luziania.controller;
 
 import br.edu.ifg.luziania.model.bo.PerfilBO;
+import br.edu.ifg.luziania.model.bo.RegistroBO;
 import br.edu.ifg.luziania.model.dto.PerfilRetornoDTO;
+import br.edu.ifg.luziania.model.dto.RegistroDTO;
 import br.edu.ifg.luziania.model.util.ErroTemplates;
 import br.edu.ifg.luziania.model.util.Sessao;
 import io.quarkus.qute.Template;
@@ -14,7 +16,8 @@ import javax.ws.rs.core.Response;
 
 @Path("")
 public class TabelaPerfilController {
-
+    @Inject
+    RegistroBO registroBO;
     @Inject
     Sessao sessao;
     @Inject
@@ -28,15 +31,23 @@ public class TabelaPerfilController {
     @Produces(MediaType.TEXT_HTML)
     @Path("/tabelaperfil")
     public TemplateInstance tabelaperfil(){
-        if(sessao.getNome().isEmpty())
+        RegistroDTO registroDTO = new RegistroDTO();
+        registroDTO.setUsuario(sessao.getNome());
+
+        if(sessao.getNome().isEmpty()) {
+            registroDTO.setAcao("Acessou Sem Permissao a pagina Perfis");
+            registroBO.salvar(registroDTO);
             return ErroTemplates.proibido();
+        }
+        registroDTO.setAcao("Acessou a pagina Perfis");
+        registroBO.salvar(registroDTO);
         return tabelaperfil.instance();
     }
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/listar")
+    @Path("/listarperfis")
     public Response tabela(){
-        PerfilRetornoDTO retornoDTO = perfilBO.listar();
+        PerfilRetornoDTO retornoDTO = perfilBO.listarperfis();
 
         return Response
                 .status(retornoDTO.getStatus())

@@ -1,7 +1,9 @@
 package br.edu.ifg.luziania.controller;
 
+import br.edu.ifg.luziania.model.bo.RegistroBO;
 import br.edu.ifg.luziania.model.bo.UsuarioBO;
 import br.edu.ifg.luziania.model.dto.AutenticacaoUsuarioDTO;
+import br.edu.ifg.luziania.model.dto.RegistroDTO;
 import br.edu.ifg.luziania.model.util.Sessao;
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
@@ -22,6 +24,8 @@ public class LoginController {
     Sessao sessao;
     @Inject
     UsuarioBO usuarioBO;
+    @Inject
+    RegistroBO registroBO;
     private final Template login;
     public LoginController(Template login){
         this.login = login;
@@ -31,6 +35,10 @@ public class LoginController {
     @Produces(MediaType.TEXT_HTML)
     @Path("/login")
     public TemplateInstance login(){
+        RegistroDTO registroDTO = new RegistroDTO();
+        registroDTO.setUsuario(sessao.getNome());
+        registroDTO.setAcao("Acessou a pagina Login");
+        registroBO.salvar(registroDTO);
         if(sessao.getNome().isEmpty()){
             return login.data("acessoPrincipal", false);
         }
@@ -41,7 +49,7 @@ public class LoginController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/autenticar")
-    public Response autenticar(AutenticacaoUsuarioDTO autenticacao){
-        return Response.ok(usuarioBO.autenticar(autenticacao.getEmail(), autenticacao.getSenha()), MediaType.APPLICATION_JSON).build();
+    public Response autenticar(AutenticacaoUsuarioDTO dto){
+        return Response.ok(usuarioBO.autenticar(dto.getEmail(), dto.getSenha()), MediaType.APPLICATION_JSON).build();
     }
 }

@@ -1,5 +1,7 @@
 package br.edu.ifg.luziania.controller;
 
+import br.edu.ifg.luziania.model.bo.RegistroBO;
+import br.edu.ifg.luziania.model.dto.RegistroDTO;
 import br.edu.ifg.luziania.model.entity.Perfil;
 import br.edu.ifg.luziania.model.util.ErroTemplates;
 import br.edu.ifg.luziania.model.util.Sessao;
@@ -16,7 +18,8 @@ import java.util.Objects;
 
 @Path("")
 public class PrincipalController {
-
+    @Inject
+    RegistroBO registroBO;
     @Inject
     Sessao sessao;
     private final Template principal;
@@ -29,13 +32,22 @@ public class PrincipalController {
     @Path("/principal")
     public TemplateInstance principal(){
         List<String> lista = sessao.getPermissoes();
+        RegistroDTO registroDTO = new RegistroDTO();
+        registroDTO.setUsuario(sessao.getNome());
 
-        if(sessao.getNome().isEmpty())
+        if(sessao.getNome().isEmpty()) {
+            registroDTO.setAcao("Acessou Sem Permissao a pagina Principal");
+            registroBO.salvar(registroDTO);
             return ErroTemplates.proibido();
-        if(lista.isEmpty()){
-            return principal
-                    .data("acessoLog", false);
+        }else{
+            registroDTO.setAcao("Acessou a pagina Principal");
+            registroBO.salvar(registroDTO);
+            if(lista.isEmpty()){
+                return principal
+                        .data("acessoLog", false);
+            }
+            return principal.data("acessoLog", Objects.equals(lista.get(0), "sim"));
         }
-        return principal.data("acessoLog", Objects.equals(lista.get(0), "sim"));
+
     }
 }

@@ -1,8 +1,10 @@
 package br.edu.ifg.luziania.controller;
 
 import br.edu.ifg.luziania.model.bo.PerfilBO;
+import br.edu.ifg.luziania.model.bo.RegistroBO;
 import br.edu.ifg.luziania.model.dto.CadastroPerfilDTO;
 import br.edu.ifg.luziania.model.dto.PerfilRetornoDTO;
+import br.edu.ifg.luziania.model.dto.RegistroDTO;
 import br.edu.ifg.luziania.model.util.ErroTemplates;
 import br.edu.ifg.luziania.model.util.Sessao;
 import io.quarkus.qute.Template;
@@ -20,6 +22,8 @@ public class PerfilController {
 
     @Inject
     PerfilBO perfilBO;
+    @Inject
+    RegistroBO registroBO;
     private final Template perfil;
 
     public PerfilController(Template perfil){
@@ -30,8 +34,16 @@ public class PerfilController {
     @Produces(MediaType.TEXT_HTML)
     @Path("/perfil")
     public TemplateInstance perfil(){
-        if(sessao.getNome().isEmpty())
+        RegistroDTO registroDTO = new RegistroDTO();
+        registroDTO.setUsuario(sessao.getNome());
+
+        if(sessao.getNome().isEmpty()) {
+            registroDTO.setAcao("Acessou Sem Permissao a pagina Cadastrar Perfil");
+            registroBO.salvar(registroDTO);
             return ErroTemplates.proibido();
+        }
+        registroDTO.setAcao("Acessou a pagina Cadastrar Perfil");
+        registroBO.salvar(registroDTO);
         return perfil.instance();
     }
 
