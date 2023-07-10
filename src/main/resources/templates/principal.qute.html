@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Principal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="/js/principal.js" type="application/javascript"></script>
+    <script src="/js/principalficha.js" type="application/javascript"></script>
     <link rel="stylesheet" href="/css/principal.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </head>
@@ -14,6 +14,9 @@
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/fichas">Suas Fichas</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="/login">Login</a>
                 </li>
@@ -31,7 +34,79 @@
     </div>
 </nav>
 
-<h1>principal</h1>
+<form class="row g-3 needs-validation" novalidate>
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">Nivel</label>
+        <select class="form-select" id="nivel" required>
+            <option selected disabled value="">Escolha...</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">Destreza</label>
+        <select class="form-select" id="destreza" required>
+            <option selected disabled value="">Escolha...</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">Constituição</label>
+        <select class="form-select" id="constituicao" required>
+            <option selected disabled value="">Escolha...</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">Inteligencia</label>
+        <select class="form-select" id="inteligencia" required>
+            <option selected disabled value="">Escolha...</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" onclick="salvar()">Salvar ficha</button>
+    </div>
+</form>
 
 
 </body>
