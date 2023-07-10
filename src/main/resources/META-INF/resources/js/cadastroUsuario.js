@@ -18,7 +18,7 @@ function validar_formulario(){
 //por ser um POST, pode possuir um body, que é corpo da requisição.
 //essa requisição é responsável por fazer o cadastro
 function criarCadastro(email, nome, senha){
-    return new Request("http://localhost:8080/usuario/cadastrar", {
+    return new Request("http://localhost:8080/cadastrar", {
         method: "POST",
         headers:{
             "Accept": "application/json",
