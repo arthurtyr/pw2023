@@ -3,19 +3,24 @@
     border-width: 2px;
     border-color: #878484;
     background: antiquewhite;
-    position: relative;
+    position: absolute;
     /* POSITION RELATIVE: PAI DO POSITION ABSOLUTE */
-    height: 800px;
-    width: 400px;
-    top: 10px;
-    left: 800px;
+    height: 100%;
+    width: 450px;
+    top: 0px;
+    right: 0px;
 }
-
+.custom-row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
 html, body {
+
     height: 100%;
     width: 100%;
     /*FAZENDO O BODY OCUPAR 100% DA TELA */
 }
+
 .invalid-feedback{
     padding-bottom: -10px;
     font-size: small;
