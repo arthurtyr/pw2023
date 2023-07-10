@@ -56,5 +56,4 @@ public class FichasController {
                 .entity(retornoDTO)
                 .build();
     }
-
 }

@@ -1,5 +1,5 @@
 .bloco{
-    background: #b6f881;
+    background: #b4e77f;
     position: absolute;
     /* POSITION RELATIVE: PAI DO POSITION ABSOLUTE */
     height: 100%;
@@ -7,6 +7,8 @@
     top: 0px;
     right: 0px;
     padding-top: 110px;
+    border-left: solid 30px;
+    border-left: #8cd314;
 }
 .custom-row {
     margin-left: 0px;
@@ -32,8 +34,8 @@ html, body {
 
 .btn{
     font-size: small;
-    background: #45b2cb
-    /*DEGRADE*/
+    background: #863d86;
+    color: white;/*DEGRADE*/
 }
 .col {
     position: absolute;
