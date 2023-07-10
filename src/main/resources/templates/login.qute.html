@@ -11,47 +11,50 @@
 </head>
 <body background="images/login.png">
     <div class="bloco" id="blocao">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center custom-row">
             <div class="col-md-10 pt-3">
                 <h2>Login</h2>
             </div>
         </div>
-        <div class="row justify-content-center">
+
+        <div class="row justify-content-center custom-row">
             <div class="col-md-10">
                 <div id="vazio" class="invalid-feedback" style="display:none;">
-                    Os campos e-mail e senha são obrigatórios Verifique o formulário
+                    Os campos e-mail e senha são obrigatórios. Verifique o formulário.
                 </div>
                 <label class="lbcad" for="email">E-mail</label>
-                <input id="email" class="form-control" type="email" name="email" >
+                <input id="email" class="form-control" type="email" name="email">
             </div>
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center custom-row">
             <div class="col-md-10">
                 <label class="lbcad" for="senha">Senha</label>
-                <input id="senha" class="form-control" type="text" name="senha" >
+                <input id="senha" class="form-control" type="text" name="senha">
                 <div id="alerta-email" class="invalid-feedback" style="display:none;">
                     E-mail e senha não cadastrados.
                 </div>
             </div>
         </div>
 
-        <div class="row justify-content-center pt-4">
+        <div class="row justify-content-center pt-4 custom-row">
             <div class="d-grid col-md-10">
                 <button type="button" class="btn" onclick="autenticar()">Entrar</button>
             </div>
         </div>
-        <div class="row justify-content-center pt-4">
+
+        <div class="row justify-content-center pt-4 custom-row">
             <div class="d-flex justify-content-center col-md-10">
                 <a class="cadlink" href="/cadastro">Cadastrar</a>
             </div>
         </div>
+
         {#if acessoPrincipal}
-        <div class="row justify-content-center pt-4">
-            <div class="d-flex justify-content-center col-md-10">
-                <a class="cadlink" href="/principal">Voltar à página principal</a>
+            <div class="row justify-content-center pt-4 custom-row">
+                <div class="d-flex justify-content-center col-md-10">
+                    <a class="cadlink" href="/principal">Voltar à página principal</a>
+                </div>
             </div>
-        </div>
         {/if}
     </div>
 </body>
