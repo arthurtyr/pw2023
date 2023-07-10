@@ -1,13 +1,12 @@
 .bloco{
-    border-style: solid;
-    border-width: 2px;
-    border-color: #878484;
-    background: antiquewhite;
+    background: #00172f;
     position: absolute;
     width: 450px;
     height: 100%;
     /* POSITION RELATIVE: PAI DO POSITION ABSOLUTE */
     right: 0;
+    color: white;
+    padding-top: 190px;
 }
 .custom-row {
     margin-left: 0px;
@@ -33,7 +32,7 @@ html, body {
 
 .btn{
     font-size: small;
-    background-image: linear-gradient(to top,#F52D39,#EC646D);
+    background: #52d6f3;
     /*DEGRADE*/
 }
 .col {
@@ -42,7 +41,7 @@ html, body {
 }
 .cadlink{
     font-size: small;
-    color: red;
+    color: #852785;
 }
 .cadlink:hover{
     cursor: pointer;
