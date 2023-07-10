@@ -3,12 +3,9 @@
     border-width: 2px;
     border-color: #878484;
     background: antiquewhite;
-    position: relative;
+    position: absolute;
     /* POSITION RELATIVE: PAI DO POSITION ABSOLUTE */
-    height: 800px;
-    width: 400px;
-    top: 10px;
-    left: 50px;
+    right: 0;
 }
 
 html, body {
