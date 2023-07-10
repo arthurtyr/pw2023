@@ -42,6 +42,7 @@ public class UsuarioBO {
             retornoDTO.setAutenticado(false);
             retornoDTO.setMensagem("Email ou senha inválido!");
             logDTO.setAcao("Email ou senha invalido");
+            return retornoDTO;
         } else {
             retornoDTO.setUrl("/principal");
             retornoDTO.setAutenticado(true);
