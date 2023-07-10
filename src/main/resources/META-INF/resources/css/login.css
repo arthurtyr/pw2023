@@ -5,7 +5,7 @@
     background: antiquewhite;
     position: absolute;
     /* POSITION RELATIVE: PAI DO POSITION ABSOLUTE */
-    right: 0;
+    right: 10px;
 }
 
 html, body {
