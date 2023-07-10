@@ -5,7 +5,10 @@
 .table{
     width: 35%;
 }
-nav{
-    background: black;
+.todo{
+    margin-left: 15px;
 }
-
+.btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
