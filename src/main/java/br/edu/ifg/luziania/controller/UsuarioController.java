@@ -3,6 +3,7 @@ package br.edu.ifg.luziania.controller;
 import br.edu.ifg.luziania.model.bo.UsuarioBO;
 import br.edu.ifg.luziania.model.dto.CadastroUsuarioRetornoDTO;
 import br.edu.ifg.luziania.model.dto.CadastroUsuarioDTO;
+import br.edu.ifg.luziania.model.util.Sessao;
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 
@@ -13,7 +14,8 @@ import javax.ws.rs.core.Response;
 
 @Path("usuario")
 public class UsuarioController {
-
+    @Inject
+    Sessao sessao;
     @Inject
     UsuarioBO usuarioBO;
     private final Template cadastro;
@@ -28,7 +30,10 @@ public class UsuarioController {
     @Produces(MediaType.TEXT_HTML)
     @Path("/cadastro")
     public TemplateInstance cadastro(){
-        return cadastro.instance();
+        if(sessao.getNome().isEmpty()){
+            return cadastro.data("acessoPrincipal", false);
+        }
+        return cadastro.data("acessoPrincipal", true);
     }
 
     @POST

@@ -33,7 +33,8 @@ public class PrincipalController {
         if(sessao.getNome().isEmpty())
             return ErroTemplates.proibido();
         if(lista.isEmpty()){
-            return principal.data("acessoLog", false);
+            return principal
+                    .data("acessoLog", false);
         }
         return principal.data("acessoLog", Objects.equals(lista.get(0), "sim"));
     }

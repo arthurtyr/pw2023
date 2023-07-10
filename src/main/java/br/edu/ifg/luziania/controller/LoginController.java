@@ -2,6 +2,7 @@ package br.edu.ifg.luziania.controller;
 
 import br.edu.ifg.luziania.model.bo.UsuarioBO;
 import br.edu.ifg.luziania.model.dto.AutenticacaoUsuarioDTO;
+import br.edu.ifg.luziania.model.util.Sessao;
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 
@@ -17,7 +18,8 @@ import javax.ws.rs.core.Response;
 @Path("") //@Path -> Avisar o servidor de aplicações que essa classe java pode receber requisicções
 //e define o caminho base para essa class.
 public class LoginController {
-
+    @Inject
+    Sessao sessao;
     @Inject
     UsuarioBO usuarioBO;
     private final Template login;
@@ -29,7 +31,10 @@ public class LoginController {
     @Produces(MediaType.TEXT_HTML)
     @Path("/login")
     public TemplateInstance login(){
-        return login.instance();
+        if(sessao.getNome().isEmpty()){
+            return login.data("acessoPrincipal", false);
+        }
+        return login.data("acessoPrincipal", true);
     }
 
     @POST
